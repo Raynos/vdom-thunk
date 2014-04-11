@@ -1,4 +1,4 @@
-var createElement = require("virtual-dom/render")
+var createElement = require("virtual-dom/create-element")
 var diff = require("virtual-dom/diff")
 var patch = require("virtual-dom/patch")
 
