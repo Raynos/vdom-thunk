@@ -6,14 +6,23 @@ module.exports = partial
 
 function partial(fn) {
     var args = [].slice.call(arguments, 1)
+    var firstArg = args[0]
+    var key
 
-    return new Thunk(fn, args)
+    if ("key" in firstArg) {
+        key = firstArg.key
+    } else if ("id" in firstArg) {
+        key = firstArg.id
+    }
+
+    return new Thunk(fn, args, key)
 }
 
-function Thunk(fn, args) {
+function Thunk(fn, args, key) {
     this.fn = fn
     this.args = args
     this.vnode = null
+    this.key = key
 }
 
 Thunk.prototype.type = "immutable-thunk"
