@@ -69,7 +69,10 @@ function update(previous, domNode) {
         return
     }
 
-    this.vnode = (this.vnode || this.fn.apply(null, this.args))
+    if (!this.vnode) {
+        this.vnode = this.fn.apply(null, this.args)
+    }
+
     patch(domNode, diff(previous.vnode, this.vnode))
 }
 
