@@ -73,7 +73,8 @@ function update(previous, domNode) {
         this.vnode = this.fn.apply(null, this.args)
     }
 
-    patch(domNode, diff(previous.vnode, this.vnode))
+    var patches = diff(previous.vnode, this.vnode)
+    patch(domNode, patches)
 }
 
 function init() {
