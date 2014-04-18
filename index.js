@@ -9,10 +9,12 @@ function partial(fn) {
     var firstArg = args[0]
     var key
 
-    if (firstArg && "key" in firstArg) {
-        key = firstArg.key
-    } else if (firstArg && "id" in firstArg) {
-        key = firstArg.id
+    if (typeof firstArg === "object" && firstArg !== null) {
+        if ("key" in firstArg) {
+            key = firstArg.key
+        } else if ("id" in firstArg) {
+            key = firstArg.id
+        }
     }
 
     return new Thunk(fn, args, key)
