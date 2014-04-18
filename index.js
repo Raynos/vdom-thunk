@@ -40,10 +40,13 @@ Thunk.prototype.update = update
 Thunk.prototype.init = init
 
 function shouldUpdate(current, previous) {
-    return current.fn !== previous.fn ||
-        current.args.some(function (arg, index) {
-            return arg !== previous.args[index]
-        })
+    if (current.fn !== previous.fn) {
+        return true
+    }
+
+    return current.args.some(function (arg, index) {
+        return arg !== previous.args[index]
+    })
 }
 
 function update(previous, domNode) {
