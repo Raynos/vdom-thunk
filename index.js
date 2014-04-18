@@ -5,7 +5,7 @@ var patch = require("virtual-dom/patch")
 function copyOver(list, offset) {
     var newList = []
     for (var i = offset; i < list.length; i++) {
-        newList[i] = list[i]
+        newList[i - offset] = list[i]
     }
     return newList
 }
