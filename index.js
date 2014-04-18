@@ -44,8 +44,11 @@ function shouldUpdate(current, previous) {
         return true
     }
 
+    var cargs = current.args
+    var parcs = previous.args
+
     // fast case length comparison. Works for `length = 0` too
-    if (current.args.length === previous.args.length) {
+    if (cargs.length === pargs.length) {
         return true
     }
 
