@@ -48,7 +48,7 @@ function shouldUpdate(current, previous) {
     var parcs = previous.args
 
     // fast case for args is zero case.
-    if (cargs.length === 0 && cargs.length === pargs.length) {
+    if (cargs.length === 0 && pargs.length === 0) {
         return false
     }
 
