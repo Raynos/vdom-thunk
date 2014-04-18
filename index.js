@@ -49,7 +49,7 @@ function shouldUpdate(current, previous) {
 
     // fast case length comparison. Works for `length = 0` too
     if (cargs.length === pargs.length) {
-        return true
+        return false
     }
 
     return current.args.some(function (arg, index) {
