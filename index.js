@@ -52,9 +52,15 @@ function shouldUpdate(current, previous) {
         return false
     }
 
-    return current.args.some(function (arg, index) {
-        return arg !== previous.args[index]
-    })
+    var max = cargs.length > pargs.length ? cargs.length : pargs.length
+
+    for (var i = 0; i < max; i++) {
+        if (cargs[i] !== pargs[i]) {
+            return true
+        }
+    }
+
+    return false
 }
 
 function update(previous, domNode) {
