@@ -9,9 +9,9 @@ function partial(fn) {
     var firstArg = args[0]
     var key
 
-    if ("key" in firstArg) {
+    if (firstArg && "key" in firstArg) {
         key = firstArg.key
-    } else if ("id" in firstArg) {
+    } else if (firstArg && "id" in firstArg) {
         key = firstArg.id
     }
 
