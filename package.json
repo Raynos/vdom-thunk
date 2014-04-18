@@ -20,6 +20,7 @@
     "virtual-dom": "0.0.8"
   },
   "devDependencies": {
+    "jshint": "^2.5.0",
     "tape": "~1.0.2"
   },
   "licenses": [

@@ -45,7 +45,7 @@ function shouldUpdate(current, previous) {
     }
 
     var cargs = current.args
-    var parcs = previous.args
+    var pargs = previous.args
 
     // fast case for args is zero case.
     if (cargs.length === 0 && pargs.length === 0) {
