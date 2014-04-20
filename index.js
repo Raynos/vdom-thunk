@@ -1,3 +1,4 @@
+var observ = require("observ")
 var createElement = require("virtual-dom/create-element")
 var diff = require("virtual-dom/diff")
 var patch = require("virtual-dom/patch")
@@ -67,7 +68,7 @@ function LocalThunk(fn, args, key, initialState, teardown) {
     this.initialState = initialState
     this.teardown = teardown
     this.domNodes = null
-    this.currentVnode = mercury.value(null)
+    this.currentVnode = observ(null)
     this.currentWidget = null
 }
 
@@ -105,10 +106,11 @@ function shouldUpdate(current, previous) {
 }
 
 function update(previous, domNode) {
-    this.domNodes = previous.domNodes
-    if (this.domNodes.indexOf(domNode) === -1) {
-        this.domNodes.push(domNode)
+    var nodes = previous.domNodes.slice()
+    if (nodes.indexOf(domNode) === -1) {
+        nodes.push(domNode)
     }
+    this.domNodes = nodes
 
     this.currentWidget = previous.currentWidget
     this.localState = previous.localState
@@ -134,7 +136,7 @@ function init() {
     this.localState = this.initialState()
     this.currentVnode.set(this.fn
         .apply(null, [this.localState()].concat(this.args)))
-    this.currentWidget = mercury.value(this)
+    this.currentWidget = observ(this)
 
     var self = this
     this.localState(function (newState) {
@@ -161,6 +163,9 @@ function destroy(previous, domNode) {
     // good luck implementing this without bugs :/
     this.teardown(this.localState, previous, domNode)
 
+    // WE MUTATE THE PROPERTIES OF A WIDGET HERE
+    // ALL OTHER MUTATION GOES THROUGH AN OBSERV
+    // NO IDEA HOW TO HANDLE CORRECTLY
     var index = this.domNodes.indexOf(domNodes)
     if (index !== -1) {
         this.domNodes.splice(index, 1)
