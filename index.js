@@ -160,4 +160,9 @@ function destroy(previous, domNode) {
 
     // good luck implementing this without bugs :/
     this.teardown(this.localState, previous, domNode)
+
+    var index = this.domNodes.indexOf(domNodes)
+    if (index !== -1) {
+        this.domNodes.splice(index, 1)
+    }
 }
