@@ -150,7 +150,7 @@ function init() {
         }
     })
 
-    return createElement(this.vnode)
+    return createElement(this.currentVnode())
 }
 
 function destroy(previous, domNode) {
