@@ -18,7 +18,7 @@ module.exports = partial
 function partial(fn) {
     var args = copyOver(arguments, 1)
     var firstArg = args[0]
-    var hasObjects = false
+    var hasObjects = args.length === 0
     var key
 
     if (typeof firstArg === "object" && firstArg !== null) {
