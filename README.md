@@ -18,7 +18,7 @@ Use partial when you want to avoid re-rendering subtrees.
 
 `partial` will only re-evaluate the subtree if the arguments
   you pass to it change. This means you should use an immutable
-  data structure (like `observ-hash`)
+  data structure (like `observ-struct`)
 
 ```js
 var partial = require("vdom-thunk")
