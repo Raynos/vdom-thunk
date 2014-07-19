@@ -9,6 +9,6 @@ vdom-thunk/immutable-thunk : (
 
 vdom-thunk/partial : (
     eq: (Array<Any>, Array<Any>) => Boolean
-) => (fn: Function<VElem>, ...args: Any) => VThunk
+) => (fn: () => VElem, ...args: Any) => VThunk
 
-vdom-thunk : (fn: Function<VElem>, ...args: Any) => VThunk
+vdom-thunk : (fn: () => VElem, ...args: Any) => VThunk
