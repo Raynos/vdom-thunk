@@ -1,12 +1,13 @@
-function Thunk(fn, args, key, eqArgs) {
+function Thunk(fn, args, key, eqFn) {
     this.fn = fn;
     this.args = args;
     this.key = key;
-    this.eqArgs = eqArgs;
+    this.eqFn = eqFn;
 }
 
 Thunk.prototype.type = 'Thunk';
 Thunk.prototype.render = render;
+
 module.exports = Thunk;
 
 function shouldUpdate(current, previous) {
@@ -17,7 +18,7 @@ function shouldUpdate(current, previous) {
     var cargs = current.args;
     var pargs = previous.args;
 
-    return !current.eqArgs(cargs, pargs);
+    return !current.eqFn(cargs, pargs);
 }
 
 function render(previous) {
