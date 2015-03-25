@@ -139,7 +139,7 @@ It also takes a key which it sets on the returned `VThunk` and
   [11]: https://ci.testling.com/Raynos/vdom-thunk.png
   [12]: https://ci.testling.com/Raynos/vdom-thunk
 
-  [docs]: https://github.com/Raynos/vdom-thunk/tree/master/README.md
+  [docs]: https://github.com/Raynos/vdom-thunk/tree/master/docs.mli
   [hyperscript]: https://github.com/Raynos/virtual-hyperscript
   [vtree]: https://github.com/Matt-Esch/vtree
   [vdom]: https://github.com/Matt-Esch/vdom
