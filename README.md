@@ -12,6 +12,9 @@
 
 A thunk optimization for virtual-dom
 
+For an introduction on **Thunk interface** in general, see
+  [virtual-dom doc](https://github.com/Matt-Esch/virtual-dom/blob/master/docs/thunk.md).
+
 ## Example
 
 Use Thunk when you want to avoid re-rendering subtrees.
